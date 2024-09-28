@@ -2,16 +2,17 @@
 ![image](https://github.com/user-attachments/assets/8cc9c92f-456b-4152-9fd4-6dd37ab46ffd)
 
 ## 📚 Table of Contents 📚
-[1. Introduction](#section0)<br>
-[2. Problem Statement](#section1)<br>
-[3. Project Goals](#section1a)<br>
-[4. Data Overview](#section1b)<br>
-[5. Approach to Problem](#section2)<br>
-[6. Libraries Used](#section3)<br>
-[7. Data Preprocessing](#section4)<br>
-[8. Exploratory Data Analysis](#section5)<br>
-[9. Model Development](#section6)<br>
-[10. Model Deployment](#section7)<br>
+
+| Section Number | Section Title                                | Description |
+|-------------|----------------------------------------------|-------------|
+| 1              | [Problem Statement](#section1)               | Overview of the problem the project addresses |
+| 2              | [Approach towards problem](#section2)        | Methodological approach to solving the problem |
+| 3              | [Libraries used](#section3)                  | Overview of the libraries used in the project |
+| 4              | [Pre-Processing of Data](#section4)          | Steps taken to clean and prepare the data for analysis |
+| 5              | [Exploratory Data Analysis](#section5)       | Key insights obtained through data exploration |
+| 6              | [Model Preparation & Building](#section6)    | Machine learning models built to solve the problem |
+| 7              | [Model Deployment](#section7)                | Deployment of the model for practical use |
+
 
 <a id=section0></a>
 ## 1. Introduction
