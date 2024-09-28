@@ -3,15 +3,20 @@
 
 ## 📚 Table of Contents 📚
 
-| Section Number | Section Title                                | Description |
-|-------------|----------------------------------------------|-------------|
-| 1              | [Problem Statement](#section1)               | Overview of the problem the project addresses |
-| 2              | [Approach towards problem](#section2)        | Methodological approach to solving the problem |
-| 3              | [Libraries used](#section3)                  | Overview of the libraries used in the project |
-| 4              | [Pre-Processing of Data](#section4)          | Steps taken to clean and prepare the data for analysis |
-| 5              | [Exploratory Data Analysis](#section5)       | Key insights obtained through data exploration |
-| 6              | [Model Preparation & Building](#section6)    | Machine learning models built to solve the problem |
-| 7              | [Model Deployment](#section7)                | Deployment of the model for practical use |
+
+| Section | Title                                                                                          |
+|---------|------------------------------------------------------------------------------------------------|
+| 1       | [Introduction](#section0)                                                                      |
+| 2       | [Problem Statement](#section1)                                                                 |
+| 3       | [Project Goals](#section2)                                                                     |
+| 4       | [Data Overview](#section3)                                                                     |
+| 5       | [Approach to Problem](#section4)                                                               |
+| 6       | [Libraries Used](#section5)                                                                    |
+| 7       | [Data Preprocessing](#section6)                                                                |
+| 8       | [Exploratory Data Analysis](#section7)                                                         |
+| 9       | [Model Development](#section8)                                                                 |
+| 10      | [Model Deployment](#section9)                                                                  |
+| 11      | [Business Impact: Employee Turnover and Targeted Retention Programs](#section10) |
 
 
 <a id=section0></a>
@@ -24,14 +29,14 @@ Employee turnover can be a costly challenge for any organization, leading to dis
 
 The goal of this project is to build a scalable churn model that predicts which employees are at risk of leaving an organization. The insights from this model help HR departments proactively address employee concerns, improve retention, and target employees most likely to churn. The model was developed using Random Forest algorithms and deployed for real-time predictions.
 
-<a id=section1a></a>
+<a id=section2></a>
 ## 3. Project Goals
 
 - **Identify At-Risk Employees**: Use machine learning models to predict which employees may be considering leaving the company.
 - **Understand Turnover Drivers**: Analyze data to uncover factors contributing to employee churn, such as job satisfaction, number of projects, working hours, and department.
 - **Enhance Retention Strategies**: Use insights from the churn model to inform HR policies and develop programs that improve employee satisfaction and retention.
 
-<a id=section1b></a>
+<a id=section3></a>
 ## 4. Data Overview
 
 The dataset used for this project consists of several key employee metrics:
@@ -47,7 +52,7 @@ The dataset used for this project consists of several key employee metrics:
 
 The target variable is **Quit_the_Company**, indicating whether the employee left the company.
 
-<a id=section2></a>
+<a id=section4></a>
 ## 5. Approach to Problem
 - We aim to build a predictive model to identify employees at risk of leaving the company.
 - The dataset was fetched and merged using **Google BigQuery** SQL queries.
@@ -55,7 +60,7 @@ The target variable is **Quit_the_Company**, indicating whether the employee lef
 - The focus of the model is on **Recall**, as it is essential to identify as many employees at risk of churn as possible.
 - The final model was deployed using **PyCaret**.
 
-<a id=section3></a>
+<a id=section5></a>
 ## 6. Libraries Used
 
 The project utilized the following key libraries in Python:
@@ -67,7 +72,7 @@ The project utilized the following key libraries in Python:
 - Google Colab: Used as the environment for running the notebook and model training.
 - Google Looker: For creating an interactive data visualization dashboard, allowing users to explore employee churn trends and filter results by department.
 
-<a id=section4></a>
+<a id=section6></a>
 ## 7. Data Preprocessing
 
 - The employee data was stored in two separate tables: `tbl_hr_data` for the original dataset and `tbl_new_employees` for the new employees in the pilot program. These two tables were combined using SQL in **Google BigQuery** with the following query:
@@ -78,7 +83,7 @@ UNION ALL
 SELECT *, "Pilot" as Type FROM `data-analysis-end-to-end.employeedata.tbl_new_employees`
 ```
 
-<a id=section5></a>
+<a id=section7></a>
 ## 8. Exploratory Data Analysis
 
 Key insights gained from EDA include:
@@ -87,7 +92,7 @@ Key insights gained from EDA include:
 - **Work Accident**: Surprisingly, having a work accident had little effect on churn probability.
 - **Department Analysis**: Certain departments, like Support and Technical, have higher churn rates compared to others.
 
-<a id=section6></a>
+<a id=section8></a>
 ## 9. Model Development
 
 The Random Forest model was chosen for its ability to handle large datasets and identify feature importance. Below are the steps involved:
@@ -135,7 +140,7 @@ plot_model(rf_model, plot='feature')
 5. Features like 'Work Accident' and salary levels (low, high, medium) have less influence on the model’s predictions, indicating that these factors are less critical in determining employee churn compared to satisfaction and tenure.
 
 
-<a id=section7></a>
+<a id=section9></a>
 ## 10. Model Deployment
 The final churn prediction model was deployed using **Google Looker** to create an **interactive dashboard**. The dashboard allows users to:
 
@@ -156,3 +161,24 @@ This interactive dashboard provides a user-friendly platform for HR teams to exp
 You may view the dashboard [_here_](https://lookerstudio.google.com/reporting/fd2a908a-370b-444e-896e-ea5ea94ebf98), or preview a screenshot below:
 
 <img width="433" alt="Screenshot 2024-09-28 at 6 25 49 PM" src="https://github.com/user-attachments/assets/7b9dfc66-5791-4d94-aff9-8dc3271aeef4">
+
+<a id=section10></a>
+## 11. Business Impact: Influencing Employee Turnover and Guiding Targeted Retention Programs
+
+#### Understanding Employee Turnover
+Employee turnover can have a significant financial and operational impact on an organization. High turnover disrupts workflows, decreases productivity, and increases costs associated with recruitment and training. The **Churn Prediction Model** helps identify employees who are at risk of leaving, allowing HR to address these risks before employees actually resign. 
+
+#### Key Insights from the Model
+The model provides insights into which factors are most strongly associated with employee churn. For example:
+- **Satisfaction Level**: The model highlights that job satisfaction is the most critical factor in determining whether employees will stay or leave. HR can prioritize strategies to improve employee satisfaction through regular feedback, job enrichment, and recognition programs.
+- **Time Spent at Company**: Employees who have spent more time at the company are more likely to churn, which indicates a need for better career progression and development opportunities as employees mature in their roles.
+- **Number of Projects and Average Monthly Hours**: Employees who are overworked (or underutilized) may be more prone to leaving. This suggests the importance of workload management and fair distribution of projects to maintain motivation and prevent burnout.
+
+#### Data-Driven Retention Programs
+Using the insights provided by the churn model, HR departments can develop targeted retention programs that focus on the highest-impact areas:
+1. **Customized Employee Engagement Plans**: Tailoring engagement strategies based on an employee's tenure, department, or project workload to boost satisfaction and reduce turnover.
+2. **Career Development Programs**: Offering training, mentorship, and promotion opportunities for employees who have been with the company for several years to combat stagnation.
+3. **Work-Life Balance Initiatives**: For employees showing high project counts and long working hours, implementing flexible work schedules or project rotation can mitigate burnout risks.
+4. **Regular Job Satisfaction Surveys**: Gathering frequent feedback on job satisfaction and adjusting policies to ensure employees' needs are met, which directly influences retention.
+
+By leveraging these insights, HR can proactively focus resources on the areas most likely to drive turnover, ultimately reducing employee attrition rates and fostering a more engaged workforce.
